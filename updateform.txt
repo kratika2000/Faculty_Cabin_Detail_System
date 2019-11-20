@@ -1,0 +1,49 @@
+<?php
+session_start();
+$db=mysqli_connect("localhost:3308","root","krati","fcd_db");
+if($db->connect_error) die($db->connect_error);
+else{
+    $q="Select * from faculty where email='$_SESSION[email]'";
+    $result=mysqli_query($db,$q);
+    $num=mysqli_num_rows($result);
+}
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>faculty cabin details system</title>
+        <link rel="stylesheet" href="updateform1.css"/>
+    </head>
+    <body>
+        <h1 class="header">ONLINE FACULTY CABIN DETAILS SYSTEM</h1>
+         <a href="logout.php" class="btn">Logout</a>
+    
+        <form action="update.php" method="post">
+        <table class=view_table >
+            <tr>
+                <th>Faculty Name</th>
+                <th>Cabin Number</th>
+                <th>Room Number</th>
+                <th>Block Number</th>
+            </tr>
+            <?php
+            for($i=1;$i<=$num;$i++)
+            {
+                $row=mysqli_fetch_array($result);
+            ?>
+            <tr>
+                <td><input type="text" name="name" value="<?php echo $row['name']; ?>" /></td>
+                <td><input type="text" name="cabin_no" value="<?php echo $row['cabin_no']; ?>" /></td>
+                <td><input type="text" name="room_no" value="<?php echo $row['room_no']; ?>" /></td>
+                <td><input type="text" name="block_no" value="<?php echo $row['block_no']; ?>" /></td>
+            </tr>
+           <?php 
+            }
+            ?>
+            <tr>
+                <td colspan="4"><input type="submit" value="Update"/></td>
+            </tr>
+        </table>
+        </form>
+    </body>
+</html>
