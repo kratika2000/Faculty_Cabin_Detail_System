@@ -1,0 +1,42 @@
+<?php
+$name=$_POST['name'];
+$db=mysqli_connect("localhost:3308","root","krati","fcd_db");
+if($db->connect_error) die($db->connect_error);
+else{
+    $q="Select * from faculty where name='$name'";
+    $result=mysqli_query($db,$q);
+    $num=mysqli_num_rows($result);
+}
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>faculty cabin details system</title>
+        <link rel="stylesheet" href="vw1.css"/>
+    </head>
+    <body>
+        <h1 class="header">ONLINE FACULTY CABIN DETAILS SYSTEM</h1>
+        <table class=view_table >
+            <tr>
+                <th>Faculty Name</th>
+                <th>Cabin Number</th>
+                <th>Room Number</th>
+                <th>Block Number</th>
+            </tr>
+            <?php
+            for($i=1;$i<=$num;$i++)
+            {
+                $row=mysqli_fetch_array($result);
+            ?>
+            <tr>
+                <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['cabin_no']; ?></td>
+                <td><?php echo $row['room_no']; ?></td>
+                <td><?php echo $row['block_no']; ?></td>
+            </tr>
+           <?php 
+            }
+            ?>
+        </table>
+    </body>
+</html>
