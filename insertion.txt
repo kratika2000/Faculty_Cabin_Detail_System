@@ -1,0 +1,44 @@
+<?php
+session_start();
+//$name=$_POST['name'];
+$cabin_no=$_POST['cabin_no'];
+$room_no=$_POST['room_no'];
+$block_no=$_POST['block_no'];
+
+
+// Create connection
+$db=new mysqli("localhost:3308","root","krati","fcd_db");
+if($db->connect_error) die($db->connect_error);
+else {  
+    $q="Select * from faculty where email='$_SESSION[email]'";
+    $result=mysqli_query($db,$q);
+    $num=mysqli_num_rows($result);
+
+    if($num==0){
+    $q="INSERT INTO faculty (email,name,cabin_no,room_no,block_no) values ('$_SESSION[email]','$_SESSION[name]','$cabin_no','$room_no','$block_no')";
+    $status=mysqli_query($db,$q); }
+    else{
+    header('location:http://localhost/onlinefaculty/insert.html');
+}
+}
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>faculty cabin details system</title>
+        <link rel="stylesheet" href="insert.css">
+    </head>
+    <body>
+        <h1 class="header">ONLINE FACULTY CABIN DETAILS SYSTEM</h1>
+        <a href="logout.php" class="btn2">Logout</a>
+        <p><?php
+            if($status==1)
+                echo "Record inserted";
+            else
+                echo "Insertion failed"
+            ?>
+        </p>
+        
+    </body>
+</html>
