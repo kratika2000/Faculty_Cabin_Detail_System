@@ -1,0 +1,28 @@
+<?php
+session_start();
+$name=$_POST['name'];
+$cabin_no=$_POST['cabin_no'];
+$room_no=$_POST['room_no'];
+$block_no=$_POST['block_no'];
+$db=new mysqli("localhost:3308","root","krati","fcd_db");
+if($db->connect_error) die($db->connect_error);
+else{
+    $q="update faculty SET name='$name',cabin_no='$cabin_no',room_no='$room_no', block_no='$block_no'";
+    mysqli_query($db,$q);
+}
+mysqli_close($db);
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>faculty cabin details system</title>
+        <link rel="stylesheet" href="updateform1.css">
+    </head>
+    <body>
+        <h1 class="header">ONLINE FACULTY CABIN DETAILS SYSTEM</h1>
+        <a href="logout.php" class="btn">Logout</a>
+        <h3>Record is updated...</h3>
+        
+    </body>
+</html>
