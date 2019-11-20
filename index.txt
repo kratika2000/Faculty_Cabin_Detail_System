@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width.initial-scale=1.0">
+        <meta name="description" content="Casper Website">
+        <title>faculty cabin details system</title>
+        <link rel="stylesheet" type="text/css"
+              href="first.css" media="screen"/>
+    </head>
+    <body>
+        <img src="logo.png"class="logo"/>
+        <header>
+            
+                <a href="search.html"class="main-button"> SEARCH</a>
+            <a href="login.html"class="main-button"> FACULTY LOGIN</a>
+            <h1 class="footer-text"> Welcome to the Website</h1>
+        </header>
+        <div>
+            <h1 class=testimonials>FOR FURTHER DETAILS</h1>
+            <div class="reviews">
+                <h2>ABOUT</h2>
+                <p>This website is useful for knowing the cabin of faculties.</p>
+            </div>
+            <div class="review">
+                <h2>CONTACT US</h2>
+                <p>Kratika Upadhyay <br>
+                kratika.upadhyay_cs17@gla.ac.in<br>+91-9720969561</p>
+            </div> 
+        </div>
+        <footer>
+            Copyright @ <a href="https://gla.ac,in"target="_blank">gla university</a>
+        </footer>
+    </body>
+</html>
