@@ -1,0 +1,25 @@
+<?php
+session_start();
+
+$db=new mysqli("localhost:3308","root","krati","fcd_db");
+if($db->connect_error) die($db->connect_error);
+else{
+    $q="delete from faculty where email='$_SESSION[email]'";
+    mysqli_query($db,$q);
+}
+mysqli_close($db);
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>faculty cabin details system</title>
+        <link rel="stylesheet" href="deleteform.css">
+    </head>
+    <body>
+        <h1 class="header">ONLINE FACULTY CABIN DETAILS SYSTEM</h1>
+         <a href="logout.php" class="btn3">Logout</a>
+        <h3>Record is deleted...</h3>
+    
+    </body>
+</html>
