@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>faculty cabin details system</title>
+        <link rel="stylesheet" href="aflog1.css">
+    </head>
+    <body>
+        <h1 class="header">ONLINE FACULTY CABIN DETAILS SYSTEM</h1>
+        <a href="logout.php" class="btn">Logout</a>
+        <a href="insertform.html"class="main-button"> INSERT</a>
+        <a href="updateform.php"class="main-button"> UPDATE</a>
+        <a href="view1.php"class="main-button"> VIEW</a>
+        <a href="deleteform1.php"class="main-button"> DELETE</a>
+    </body>
+</html>
