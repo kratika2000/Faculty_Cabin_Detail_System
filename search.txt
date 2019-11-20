@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>faculty cabin details system</title>
+        <link rel="stylesheet" href="search.css">
+    </head>
+    <body>
+    
+        <h1 class="header">ONLINE FACULTY CABIN DETAILS SYSTEM</h1>
+        <div class="box">
+            <h2>Search</h2>
+            <form action="view.php" method="post">
+                <div class="inputBox">
+                    <input type="text" name="name" required="">
+                    <label>Faculty Name</label>
+                </div>
+                
+                <input type="submit" name="" value="Submit">
+            </form>
+        </div>
+
+    </body>
+</html>
