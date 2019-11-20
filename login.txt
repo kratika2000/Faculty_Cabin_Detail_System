@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>faculty cabin details system</title>
+	<link rel="stylesheet" href="login1.css">
+</head>
+<body>
+
+<h1 class="header">ONLINE FACULTY CABIN DETAILS SYSTEM</h1>
+
+    <div class="box">
+        <form action="validation.php"role="form" method="post" enctype="multipart/form-data">
+            
+            <div class="inputBox">
+                
+                    <input type="text" name="email" required="">
+                    <label>Email </label>
+                </div>
+            
+                <div class="inputBox">
+                    
+                    <input type="text" name="uname" value="" maxlength="10"  required="">
+                    <label >Faculty Name</label>
+                </div>
+            
+            
+                <div class="inputBox">
+                    
+                    <input type="text"  name="mobile" value="" maxlength="10"  required="">
+                    <label >Mobile</label>
+                </div>
+           
+            
+                
+                    <input type="submit" name="sendopt" value="Send OTP">
+            
+    
+            </form>
+    </div>
+    </body>
+</html>
+
