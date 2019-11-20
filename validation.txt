@@ -1,0 +1,64 @@
+
+<?php
+    session_start();
+    $email=$_POST['email'];
+    $name=$_POST['uname'];
+    $mobile=$_POST['mobile'];
+    $db=new mysqli("localhost:3308","root","krati","fcd_db");
+    if($db->connect_error) die($db->connect_error);
+    else{
+        $q="Select * from user where email='$email' && name='$name' && mobile='$mobile'";
+        $result=mysqli_query($db,$q);
+        $num=mysqli_num_rows($result);
+        if($num==1)
+        {
+            //$_SESSION['email']=$email;
+            //$_SESSION['name']=$name;
+	
+	
+		
+			if(isset($_POST['sendopt'])) {
+				require('textlocal.class.php');
+				require('credential.php');
+                
+
+				$textlocal = new Textlocal(false, false, API_KEY);
+
+                // You can access MOBILE from credential.php
+				// $numbers = array(MOBILE);
+                // Access enter mobile number in input box
+                $numbers = array($_POST['mobile']);
+
+				$sender = 'TXTLCL';
+				$otp = mt_rand(10000, 99999);
+				$message = "Hello " . $_POST['uname'] . " This is your OTP: " . $otp;
+
+				try {
+				    $result = $textlocal->sendSms($numbers, $message, $sender);
+				    setcookie('otp', $otp);
+				    //echo "OTP successfully send..";
+                    $_SESSION['email']=$email;
+                    $_SESSION['name']=$name;
+                    header('location:http://localhost/onlinefaculty/vali1.php');
+				} catch (Exception $e) {
+                    
+				    //die('Error: ' . $e->getMessage());
+                    header('location:http://localhost/onlinefaculty/login.html');
+				}
+			}
+
+			
+			}
+
+    else{
+        
+        //echo "check your details";
+        header('location:http://localhost/onlinefaculty/login.html');
+        }
+    }
+    
+    
+?>
+        
+    
+    
